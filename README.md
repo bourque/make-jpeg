@@ -15,7 +15,6 @@ Use
 
 This module is intended to be used via the python environemnt, for
 example:
-::
 
     import make_jpeg
     make_jpeg(<path_to_file>)
@@ -27,7 +26,7 @@ This module is supported in both Python 2.7 and Python 3+.  This
 module also depends on ``astropy``, ``numpy``, and the Python Image Library
 (``PIL``), also known as ``Pillow``.  These can be installed via ``conda``
 or ``pip``:
-::
+
 
     conda install astropy
     conda install numpy
