@@ -33,8 +33,6 @@ Dependencies
     conda/pip install Pillow
 """
 
-import copy
-
 from astropy.io import fits
 import numpy as np
 from PIL import Image
@@ -69,15 +67,10 @@ def make_jpeg(filename):
             data = temp
 
     # Clip the top and bottom 1% of pixels.
-    sorted_data = copy.copy(data)
-    sorted_data = sorted_data.ravel()
-    sorted_data.sort()
-    top = sorted_data[int(len(sorted_data) * 0.99)]
-    bottom = sorted_data[int(len(sorted_data) * 0.01)]
-    top_index = np.where(data > top)
-    data[top_index] = top
-    bottom_index = np.where(data < bottom)
-    data[bottom_index] = bottom
+    top = np.percentile(data, 99)
+    data[data > top] = top
+    bottom = np.percentile(data, 1)
+    data[data < bottom] = bottom
 
     # Scale the data.
     data = data - data.min()
