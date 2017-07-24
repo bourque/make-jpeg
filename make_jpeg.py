@@ -10,6 +10,7 @@ Authors
 
     Matthew Bourque
     Alex Viana
+    Meredith Durbin
 
 Use
 ---
